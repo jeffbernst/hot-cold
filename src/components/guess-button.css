@@ -1,0 +1,10 @@
+.guess-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.guess-button button {
+  width: 450px;
+}
+

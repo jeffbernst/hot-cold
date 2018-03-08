@@ -1,0 +1,9 @@
+.guess-input {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.guess-input input {
+  width: 450px;
+}
