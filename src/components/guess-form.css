@@ -1,9 +1,13 @@
-.guess-input {
+.guess-form {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-.guess-input input {
+.guess-form input {
+  width: 300px;
+}
+
+.guess-button button {
   width: 450px;
 }

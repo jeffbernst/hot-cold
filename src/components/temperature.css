@@ -1,7 +1,14 @@
-.temperature {
-  background-color: lightblue;
+.hot, .cold {
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hot {
+  background-color: darkred;
+}
+
+.cold {
+  background-color: lightblue;
 }
