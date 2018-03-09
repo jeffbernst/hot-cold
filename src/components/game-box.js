@@ -27,40 +27,29 @@ export default class GameBox extends React.Component {
 		})
 	}
 
-	updateOnSubmit(currentGuess) {
-		// update input state
-		// push new guess into history
-		// increment counter
-		// update temperature
-		// clear input
+	updateOnSubmit = currentGuess => {
 		console.log('number: ', this.state.number);
-		console.log('guess: ', currentGuess);
-
 
 		if (this.state.number.toString() === currentGuess)
 			this.resetGame();
+
 		else {
-			let hotOrCold;
-			let currentCount = this.state.guessCounter + 1;
+			const hotOrCold = (Math.abs(this.state.number - currentGuess) < 10) ? 'hot' : 'cold';
+			const currentCount = this.state.guessCounter + 1;
 
-			if (Math.abs(this.state.number - currentGuess) < 10)
-				hotOrCold = 'hot';
-			else hotOrCold = 'cold';
-
-			this.setState({
+			this.setState(state => ({
 				guessCounter: currentCount,
 				temperature: hotOrCold,
-				guessHistory: [...this.state.guessHistory, currentGuess]
-			})
+				guessHistory: [...state.guessHistory, currentGuess]
+			}))
 		}
-	}
+	};
 
 	render() {
 		return (
 			<div className="box">
 				<Temperature temperature={this.state.temperature} />
-				<GuessForm guessInput={this.state.guessInput}
-									 onSubmit={currentGuess => this.updateOnSubmit(currentGuess)} />
+				<GuessForm guessInput={this.state.guessInput} onSubmit={this.updateOnSubmit} />
 				<GuessCounter guessCounter={this.state.guessCounter} />
 				<GuessHistory guessHistory={this.state.guessHistory} />
 			</div>
